@@ -70,6 +70,27 @@ There are four Docker tags available for the [`kkrypt0nn/wordlists`](https://hub
 
 These will have a `/wordlists` folder with all the wordlists in there for you to use them.
 
+## ⬇️ Download Wordlists Locally
+
+You can download a single wordlist directly from its `raw.githubusercontent.com` URL. For example:
+
+```bash
+mkdir -p wordlists/discovery
+curl -fL https://raw.githubusercontent.com/kkrypt0nn/wordlists/main/wordlists/discovery/common.txt \\
+    -o wordlists/discovery/common.txt
+```
+
+To download one or more groups without cloning all the wordlists, use Git sparse checkout. Replace the paths below with the categories or subcategories you need:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse \\
+    https://github.com/kkrypt0nn/wordlists.git my-wordlists
+cd my-wordlists
+git sparse-checkout set wordlists/discovery wordlists/languages
+```
+
+For example, use `wordlists/user_agents/hardware_type_specific` to select a subcategory. The available groups and their contents are listed in the [Wordlists](#-wordlists) section below.
+
 ## 📦 HackTheBox Wordlists
 
 [Hack The Box](https://hackthebox.com) is a platform designed for practicing penetration testing skills in a legal and controlled environment. It offers various challenges and real-world scenarios for users to sharpen their hacking abilities.
