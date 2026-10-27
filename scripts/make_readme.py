@@ -89,7 +89,16 @@ cd my-wordlists
 git sparse-checkout set wordlists/discovery wordlists/languages
 ```
 
-For example, use `wordlists/user_agents/hardware_type_specific` to select a subcategory. The available groups and their contents are listed in the [Wordlists](#-wordlists) section below.
+To clone a single wordlist instead, pass its file path to `git sparse-checkout set --no-cone`:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse \\
+    https://github.com/kkrypt0nn/wordlists.git my-wordlists
+cd my-wordlists
+git sparse-checkout set --no-cone /wordlists/discovery/common.txt
+```
+
+Replace `/wordlists/discovery/common.txt` with the path of any wordlist linked below, prefixed with `/`. For example, use `wordlists/user_agents/hardware_type_specific` to select a subcategory. The available groups and their contents are listed in the [Wordlists](#-wordlists) section below.
 
 ## 📦 HackTheBox Wordlists
 

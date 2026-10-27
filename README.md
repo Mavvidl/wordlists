@@ -31,6 +31,36 @@ There are four Docker tags available for the [`kkrypt0nn/wordlists`](https://hub
 
 These will have a `/wordlists` folder with all the wordlists in there for you to use them.
 
+## ⬇️ Download Wordlists Locally
+
+You can download a single wordlist directly from its `raw.githubusercontent.com` URL. For example:
+
+```bash
+mkdir -p wordlists/discovery
+curl -fL https://raw.githubusercontent.com/kkrypt0nn/wordlists/main/wordlists/discovery/common.txt \
+    -o wordlists/discovery/common.txt
+```
+
+To download one or more groups without cloning all the wordlists, use Git sparse checkout. Replace the paths below with the categories or subcategories you need:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse \
+    https://github.com/kkrypt0nn/wordlists.git my-wordlists
+cd my-wordlists
+git sparse-checkout set wordlists/discovery wordlists/languages
+```
+
+To clone a single wordlist instead, pass its file path to `git sparse-checkout set --no-cone`:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse \
+    https://github.com/kkrypt0nn/wordlists.git my-wordlists
+cd my-wordlists
+git sparse-checkout set --no-cone /wordlists/discovery/common.txt
+```
+
+Replace `/wordlists/discovery/common.txt` with the path of any wordlist linked below, prefixed with `/`. For example, use `wordlists/user_agents/hardware_type_specific` to select a subcategory. The available groups and their contents are listed in the [Wordlists](#-wordlists) section below.
+
 ## 📦 HackTheBox Wordlists
 
 [Hack The Box](https://hackthebox.com) is a platform designed for practicing penetration testing skills in a legal and controlled environment. It offers various challenges and real-world scenarios for users to sharpen their hacking abilities.
@@ -266,26 +296,6 @@ If you already have a wordlist ready to be added, make sure to [open a pull requ
     </details>
 
     <details>
-      <summary>Bots</summary>
-      <ul>
-        <li><a href="wordlists/user_agents/bots/alexa.txt">Alexa</a> - 1 Lines</li>
-        <li><a href="wordlists/user_agents/bots/amazon.txt">Amazon</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/anthropic.txt">Anthropic</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/apple.txt">Apple</a> - 4 Lines</li>
-        <li><a href="wordlists/user_agents/bots/bing.txt">Bing</a> - 13 Lines</li>
-        <li><a href="wordlists/user_agents/bots/discord.txt">Discord</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/duckduckgo.txt">Duckduckgo</a> - 1 Lines</li>
-        <li><a href="wordlists/user_agents/bots/facebook.txt">Facebook</a> - 27 Lines</li>
-        <li><a href="wordlists/user_agents/bots/google.txt">Google</a> - 303 Lines</li>
-        <li><a href="wordlists/user_agents/bots/mistral.txt">Mistral</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/openai.txt">OpenAI</a> - 5 Lines</li>
-        <li><a href="wordlists/user_agents/bots/perplexity.txt">Perplexity</a> - 2 Lines</li>
-        <li><a href="wordlists/user_agents/bots/slack.txt">Slack</a> - 2 Lines</li>
-        <li><a href="wordlists/user_agents/bots/twitter.txt">Twitter</a> - 4 Lines</li>
-      </ul>
-    </details>
-
-    <details>
       <summary>Operating System Name</summary>
       <ul>
         <li><a href="wordlists/user_agents/operating_system_name/android.txt">Android</a> - 202,129 Lines</li>
@@ -315,6 +325,26 @@ If you already have a wordlist ready to be added, make sure to [open a pull requ
         <li><a href="wordlists/user_agents/operating_system_name/windows.txt">Windows</a> - 183,284 Lines</li>
         <li><a href="wordlists/user_agents/operating_system_name/windows_mobile.txt">Windows Mobile</a> - 354 Lines</li>
         <li><a href="wordlists/user_agents/operating_system_name/windows_phone.txt">Windows Phone</a> - 2,193 Lines</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Bots</summary>
+      <ul>
+        <li><a href="wordlists/user_agents/bots/alexa.txt">Alexa</a> - 1 Lines</li>
+        <li><a href="wordlists/user_agents/bots/amazon.txt">Amazon</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/anthropic.txt">Anthropic</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/apple.txt">Apple</a> - 4 Lines</li>
+        <li><a href="wordlists/user_agents/bots/bing.txt">Bing</a> - 13 Lines</li>
+        <li><a href="wordlists/user_agents/bots/discord.txt">Discord</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/duckduckgo.txt">Duckduckgo</a> - 1 Lines</li>
+        <li><a href="wordlists/user_agents/bots/facebook.txt">Facebook</a> - 27 Lines</li>
+        <li><a href="wordlists/user_agents/bots/google.txt">Google</a> - 303 Lines</li>
+        <li><a href="wordlists/user_agents/bots/mistral.txt">Mistral</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/openai.txt">OpenAI</a> - 5 Lines</li>
+        <li><a href="wordlists/user_agents/bots/perplexity.txt">Perplexity</a> - 2 Lines</li>
+        <li><a href="wordlists/user_agents/bots/slack.txt">Slack</a> - 2 Lines</li>
+        <li><a href="wordlists/user_agents/bots/twitter.txt">Twitter</a> - 4 Lines</li>
       </ul>
     </details>
 
@@ -624,23 +654,6 @@ If you already have a wordlist ready to be added, make sure to [open a pull requ
         <li><a href="wordlists/user_agents/hardware_type_specific/tablet.txt">Tablet</a> - 26,316 Lines</li>
         <li><a href="wordlists/user_agents/hardware_type_specific/tv.txt">TV</a> - 1,110 Lines</li>
       </ul>
-    <li>Bots</li>
-      <ul>
-        <li><a href="wordlists/user_agents/bots/alexa.txt">Alexa</a> - 1 Lines</li>
-        <li><a href="wordlists/user_agents/bots/amazon.txt">Amazon</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/anthropic.txt">Anthropic</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/apple.txt">Apple</a> - 4 Lines</li>
-        <li><a href="wordlists/user_agents/bots/bing.txt">Bing</a> - 13 Lines</li>
-        <li><a href="wordlists/user_agents/bots/discord.txt">Discord</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/duckduckgo.txt">Duckduckgo</a> - 1 Lines</li>
-        <li><a href="wordlists/user_agents/bots/facebook.txt">Facebook</a> - 27 Lines</li>
-        <li><a href="wordlists/user_agents/bots/google.txt">Google</a> - 303 Lines</li>
-        <li><a href="wordlists/user_agents/bots/mistral.txt">Mistral</a> - 3 Lines</li>
-        <li><a href="wordlists/user_agents/bots/openai.txt">OpenAI</a> - 5 Lines</li>
-        <li><a href="wordlists/user_agents/bots/perplexity.txt">Perplexity</a> - 2 Lines</li>
-        <li><a href="wordlists/user_agents/bots/slack.txt">Slack</a> - 2 Lines</li>
-        <li><a href="wordlists/user_agents/bots/twitter.txt">Twitter</a> - 4 Lines</li>
-      </ul>
     <li>Operating System Name</li>
       <ul>
         <li><a href="wordlists/user_agents/operating_system_name/android.txt">Android</a> - 202,129 Lines</li>
@@ -670,6 +683,23 @@ If you already have a wordlist ready to be added, make sure to [open a pull requ
         <li><a href="wordlists/user_agents/operating_system_name/windows.txt">Windows</a> - 183,284 Lines</li>
         <li><a href="wordlists/user_agents/operating_system_name/windows_mobile.txt">Windows Mobile</a> - 354 Lines</li>
         <li><a href="wordlists/user_agents/operating_system_name/windows_phone.txt">Windows Phone</a> - 2,193 Lines</li>
+      </ul>
+    <li>Bots</li>
+      <ul>
+        <li><a href="wordlists/user_agents/bots/alexa.txt">Alexa</a> - 1 Lines</li>
+        <li><a href="wordlists/user_agents/bots/amazon.txt">Amazon</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/anthropic.txt">Anthropic</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/apple.txt">Apple</a> - 4 Lines</li>
+        <li><a href="wordlists/user_agents/bots/bing.txt">Bing</a> - 13 Lines</li>
+        <li><a href="wordlists/user_agents/bots/discord.txt">Discord</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/duckduckgo.txt">Duckduckgo</a> - 1 Lines</li>
+        <li><a href="wordlists/user_agents/bots/facebook.txt">Facebook</a> - 27 Lines</li>
+        <li><a href="wordlists/user_agents/bots/google.txt">Google</a> - 303 Lines</li>
+        <li><a href="wordlists/user_agents/bots/mistral.txt">Mistral</a> - 3 Lines</li>
+        <li><a href="wordlists/user_agents/bots/openai.txt">OpenAI</a> - 5 Lines</li>
+        <li><a href="wordlists/user_agents/bots/perplexity.txt">Perplexity</a> - 2 Lines</li>
+        <li><a href="wordlists/user_agents/bots/slack.txt">Slack</a> - 2 Lines</li>
+        <li><a href="wordlists/user_agents/bots/twitter.txt">Twitter</a> - 4 Lines</li>
       </ul>
     <li>Software Name</li>
       <ul>
